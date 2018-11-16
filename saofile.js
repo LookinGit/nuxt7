@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   prompts () {
     return [
@@ -9,7 +11,14 @@ module.exports = {
       {
         name: 'description',
         message: 'Project description',
-        default: `My PWA App`
+        default: 'My PWA App'
+      },
+      {
+        name: 'npmClient',
+        type: 'list',
+        message: 'Package manager',
+        default: 'npm',
+        choices: ['npm', 'yarn']
       }
     ]
   },
@@ -22,14 +31,17 @@ module.exports = {
     {
       type: 'move',
       patterns: {
-        'gitignore': '.gitignore'
+        gitignore: '.gitignore'
       }
     }
   ],
 
   async completed () {
-    this.gitInit()
-    await this.npmInstall()
-    this.showCompleteTips()
+    // this.gitInit()
+    // const pkgPath = path.join(this.outDir, 'package.json')
+    // if (await this.fs.pathExists(pkgPath)) {
+    //   await this.npmInstall()
+    // }
+    this.showProjectTips()
   }
 }
