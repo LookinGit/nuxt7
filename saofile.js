@@ -37,11 +37,11 @@ module.exports = {
   ],
 
   async completed () {
-    // this.gitInit()
-    // const pkgPath = path.join(this.outDir, 'package.json')
-    // if (await this.fs.pathExists(pkgPath)) {
-    //   await this.npmInstall()
-    // }
+    this.gitInit()
+    const pkgPath = path.join(this.outDir, 'package.json')
+    if (await this.fs.pathExists(pkgPath)) {
+      await this.npmInstall()
+    }
     this.showProjectTips()
   }
 }
