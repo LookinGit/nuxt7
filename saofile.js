@@ -16,6 +16,10 @@ module.exports = {
 
   actions: [
     {
+      type: 'add',
+      files: '**'
+    },
+    {
       type: 'move',
       patterns: {
         'gitignore': '.gitignore'
