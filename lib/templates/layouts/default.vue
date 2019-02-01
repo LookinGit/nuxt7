@@ -9,9 +9,7 @@ export default {
   },
   render (h) {
     return h('f7-app', {
-      props: {
-        params: this.$root.$options.framework7
-      }
+      props: this.$root.$options.framework7.app
     }, [
       h('f7-statusbar'),
       h('nuxt')
